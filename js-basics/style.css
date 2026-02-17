@@ -1,0 +1,32 @@
+        .btn {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+            font-weight: bold;
+        }
+        .navLink {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .icon {
+            margin-right: 8px;
+            width: 350px;
+            height: 350px;
+            background-image: url(images/unhovered.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .navLink:hover .icon {
+            background-image: url(images/hovered.jpg);
+        }
