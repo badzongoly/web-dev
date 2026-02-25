@@ -1,0 +1,217 @@
+body { font-family: Arial, sans-serif; padding: 20px; }
+.demoRow { display: flex; gap: 16px; flex-wrap: wrap; }
+.box {  width: 260px;  min-height: 120px;  display: grid;  place-items: center;  
+    border: 2px solid #333;  background: yellow;}
+
+/* Both boxes change colour on hover */
+.box:hover { background: orange; }
+
+/* Only this box animates smoothly */
+.smooth { transition: background-color 800ms; }
+
+
+.btn {  margin: 12px 0;  padding: 10px 18px;  border: 2px solid #333;  
+    background: white;  cursor: pointer;  transition: transform 200ms;
+}
+
+/* :active = pressed state */
+.btn:active {  transform: scale(1.15);}
+
+.form {  margin-top: 16px;  display: grid;  gap: 14px;  max-width: 380px;}
+.form input[type="radio"] {  transform: scale(1.1);}
+.pw {  
+    
+    width: 100%;  
+    padding: 10px 12px;  
+    border: 2px solid #999;  
+    border-radius: 10px;  outline: none;  
+    transition: border-color 250ms, transform 250ms;
+}
+/* :focus = ready for typing */
+.pw:focus {  border-color: #333;  transform: scale(1.02);}
+/* validity feedback (widely supported) */
+.pw:invalid {  border-color: #b00020;}
+.pw:valid {  border-color: #0a7a2f;}
+/* Optional (newer): user-initiated validity states */
+/*
+.pw:user-invalid { border-color: #b00020; }
+.pw:user-valid { border-color: #0a7a2f; }
+*/
+
+
+.wobbleControl {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+@keyframes wobble {
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
+}
+
+/* Only wobble when the checkbox is checked 
+~ is the general sibling combinator, selecting .btn.wobbleBtn that comes after #wobbleToggle
+*/
+#wobbleToggle:checked ~ .btn.wobbleBtn {
+  animation: wobble 300ms alternate infinite ease-in-out;
+}
+
+.box {
+  animation-name: wobble; /* wobble: the name of the keyframes animation */
+  animation-duration: 600ms; /* 600ms: one full wobble cycle */
+  animation-iteration-count: infinite; /* infinite: keeps repeating */
+  animation-direction: alternate; /* alternate: back and forth */
+
+  /* NEW */
+  animation-delay: 200ms; /* animation starts after 200ms */
+  animation-timing-function: ease-in-out; /* smooth acceleration and deceleration */
+}
+
+.tracks {
+  display: grid;
+  gap: 18px;
+  margin-top: 14px;
+  max-width: 760px;
+}
+
+.trackTitle {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.bars {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 4px;
+  align-items: end;
+  height: 70px;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+}
+
+.bar {
+   width: 10px;
+  height: 10%;
+  border-radius: 4px;
+  border: 1px solid #222;
+
+
+  /* The animation itself */
+  animation-name: shrink;
+  animation-duration: 700ms;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Keyframes: animate “scaleY” (height feel) */
+@keyframes shrink {
+  100% { transform: scaleY(4); }
+}
+
+/* Different timing functions per row */
+.timing-linear .bar { animation-timing-function: linear; }
+.timing-ease-in-out .bar { animation-timing-function: ease-in-out; }
+.timing-ease-in .bar { animation-timing-function: ease-in; }
+.timing-ease-out .bar { animation-timing-function: ease-out; }
+
+
+/* Base bar style stays the same */
+.bar {
+  width: 10px;
+  height: 10%;
+  border-radius: 4px;
+  border: 1px solid #222;
+}
+
+/* A) Transform-based animation (composite-friendly) */
+.demo-transform .bar {
+  transform-origin: bottom;
+  animation: growTransform 700ms ease-in-out infinite alternate;
+}
+
+@keyframes growTransform {
+  100% { transform: scaleY(4); }
+}
+
+/* B) Height-based animation (more likely to trigger layout work) */
+.demo-height .bar {
+  animation: growHeight 700ms ease-in-out infinite alternate;
+}
+
+@keyframes growHeight {
+  100% { height: 70%; }
+}
+
+
+.transformLab {
+  margin-top: 10px;
+  max-width: 700px;
+}
+
+.choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 10px 0;
+}
+
+.stage {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 24px;
+  min-height: 160px;
+  display: grid;
+  place-items: center;
+}
+
+.shape {
+  width: 80px;
+  height: 80px;
+  background: #111;
+  border-radius: 10px;
+  transform-origin: center;
+}
+
+/* 1) Rotate (modern property as in slide) */
+@keyframes myRotate {
+  0% { rotate: -0.3turn; }
+  100% { rotate: 0.3turn; }
+}
+
+/* 2) Translate (modern property as in slide) */
+@keyframes myTranslate {
+  0% { translate: -30% 0; }
+  100% { translate: 30% 0; }
+}
+
+/* 3) Scale (modern property as in slide) */
+@keyframes myScale {
+  0% { scale: 0.75 1.5; }
+  100% { scale: 1.5 0.75; }
+}
+
+/* 4) Skew (classic transform function as in slide) */
+@keyframes mySkew {
+  0% { transform: skew(-10deg, -15deg); }
+  100% { transform: skew(10deg, 15deg); }
+}
+
+/* Apply the chosen animation using :checked */
+#fxRotate:checked ~ .stage .shape {
+  animation: myRotate 900ms ease-in-out infinite alternate;
+}
+
+#fxTranslate:checked ~ .stage .shape {
+  animation: myTranslate 900ms ease-in-out infinite alternate;
+}
+
+#fxScale:checked ~ .stage .shape {
+  animation: myScale 900ms ease-in-out infinite alternate;
+}
+
+#fxSkew:checked ~ .stage .shape {
+  animation: mySkew 900ms ease-in-out infinite alternate;
+}

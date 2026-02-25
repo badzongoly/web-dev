@@ -30,3 +30,6 @@
         .navLink:hover .icon {
             background-image: url(images/hovered.jpg);
         }
+.highlight {
+    background-color: yellow;
+}

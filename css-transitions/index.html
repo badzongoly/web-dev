@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Animations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <h1>CSS Transitions</h1>  
+<div class="demoRow">    
+<div class="box abrupt">I will change abruptly on hover.</div>    
+<div class="box smooth">I will animate smoothly.</div>  
+</div>
+
+<!-- Pseduo class-->
+<hr />
+<h2>Pseudo-class practice</h2>
+<div class="wobbleControl">
+  <input type="checkbox" id="wobbleToggle" />
+  <label for="wobbleToggle">Enable wobble animation</label>
+  <button class="btn wobbleBtn">Click me!</button>
+</div>
+
+
+
+<div class="form">  
+    <label>Pick a color:<label><input type="radio" name="c" /> red</label>    
+    <label><input type="radio" name="c" /> green</label>    
+    <label><input type="radio" name="c" /> blue</label>  
+    </label>  
+    <label>Password (8+ chars):    
+        <input class="pw" type="password" minlength="8" required 
+        placeholder="8 characters minimum" />  
+    </label>
+</div>
+
+
+<hr />
+
+<h2>Animation delay + timing functions</h2>
+<p>Watch how the SAME keyframes feel different with different timing functions.</p>
+
+<div class="tracks">
+  <div class="track">
+    <div class="trackTitle">linear</div>
+    <div class="bars timing-linear" data-count="24"></div>
+  </div>
+
+  <div class="track">
+    <div class="trackTitle">ease-in-out</div>
+    <div class="bars timing-ease-in-out" data-count="24"></div>
+  </div>
+
+  <div class="track">
+    <div class="trackTitle">ease-in</div>
+    <div class="bars timing-ease-in" data-count="24"></div>
+  </div>
+
+  <div class="track">
+    <div class="trackTitle">ease-out</div>
+    <div class="bars timing-ease-out" data-count="24"></div>
+  </div>
+</div>
+
+
+<hr />
+
+<h2>Pixel pipeline demo: transform vs height</h2>
+<p>These two rows look similar, but they ask the browser to do different work.</p>
+
+<div class="tracks">
+  <div class="track">
+    <div class="trackTitle">A) Transform scaleY (usually smoother)</div>
+    <div class="bars demo-transform" data-count="24"></div>
+  </div>
+
+  <div class="track">
+    <div class="trackTitle">B) Height change (can trigger layout)</div>
+    <div class="bars demo-height" data-count="24"></div>
+  </div>
+</div>
+
+
+<hr />
+
+<h2>Transform functions playground</h2>
+<p>Pick one effect and watch the square animate.</p>
+
+<div class="transformLab">
+  <div class="choices">
+    <label><input type="radio" name="fx" id="fxRotate" checked> rotate</label>
+    <label><input type="radio" name="fx" id="fxTranslate"> translate</label>
+    <label><input type="radio" name="fx" id="fxScale"> scale</label>
+    <label><input type="radio" name="fx" id="fxSkew"> skew</label>
+
+ <div class="stage">
+    <div class="shape" aria-label="animated square"></div>
+</div>   
+</div>
+  </div>
+
+
+
+ 
+
+<script src="app.js"></script>
+</body>
+</html>

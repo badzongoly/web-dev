@@ -1,0 +1,12 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 1rem;
+    }
+    p {
+        font-size: 2em;
+        font-family: 'Courier New', Courier, monospace;
+        background-color: aquamarine;
+    }
