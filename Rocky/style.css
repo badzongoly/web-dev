@@ -1,0 +1,26 @@
+        p{
+            font-size: 18px;
+            line-height: 1.5;
+            color:blueviolet;
+            background-color: lightblue;
+            text-align: justify;
+            text-align-last: center ;
+            vertical-align: middle;
+            direction:rtl;
+            unicode-bidi: bidi-override;
+            text-decoration-line: underline;
+
+        }
+        header{
+            background-color: rgb(221, 16, 16);
+            padding: 10px;
+        }
+        .Rocky{
+            background-color: lightgray;
+            padding: 10px;
+        }
+        footer p{
+            background-color: lightgray;
+            padding: 10px;
+        }
+  
